@@ -1,0 +1,30 @@
+# Базовые значения — не используются напрямую; применяйте values-dev.yaml или values-prod.yaml
+
+image:
+  repository: postgres
+  tag: "15.6-alpine"
+  pullPolicy: IfNotPresent
+
+# Параметры БД
+postgres:
+  database: support_bot
+  user: support_user
+  # Пароль ВСЕГДА передаётся через --set или внешний Secret
+  password: ""
+
+# Ресурсы
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+# Хранилище
+storage:
+  size: 1Gi
+  storageClass: ""   # "" = использовать default StorageClass
+
+# Репликаций StatefulSet (только 1 для простого примера)
+replicas: 1

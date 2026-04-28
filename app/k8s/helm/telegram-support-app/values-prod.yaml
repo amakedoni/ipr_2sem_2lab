@@ -1,0 +1,16 @@
+replicaCount: 2
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+# FQDN обязателен: prod-приложение в telegram-prod, БД в telegram-demo
+database:
+  url: "postgresql://support_user:REPLACE_VIA_CI@postgres-0.postgres.telegram-demo.svc.cluster.local:5432/support_bot"
+
+config:
+  logLevel: "INFO"

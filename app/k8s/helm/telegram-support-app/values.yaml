@@ -1,0 +1,25 @@
+image:
+  repository: telegram-support-bot
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+telegram:
+  # Токен передаётся через --set telegram.botToken=... — никогда не в Git
+  botToken: ""
+
+# Контракт с инфраструктурным репозиторием
+database:
+  url: ""   # REQUIRED: должен совпадать с контрактом из infra/README.md
+
+config:
+  logLevel: "INFO"

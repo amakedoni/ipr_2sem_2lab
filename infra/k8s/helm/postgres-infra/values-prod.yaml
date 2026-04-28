@@ -1,0 +1,17 @@
+# В prod пароль НЕ хранится здесь — передаётся через CI:
+# helm upgrade ... --set postgres.password=$DB_PASSWORD
+
+postgres:
+  password: ""   # REQUIRED: передать через --set postgres.password=...
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+
+storage:
+  size: 10Gi
+  storageClass: "standard"

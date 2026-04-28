@@ -1,0 +1,17 @@
+# Headless Service — даёт стабильный DNS для каждого пода StatefulSet:
+# postgres-0.postgres.<namespace>.svc.cluster.local
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: postgres
+spec:
+  clusterIP: None          # <-- Headless
+  selector:
+    app: postgres
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432

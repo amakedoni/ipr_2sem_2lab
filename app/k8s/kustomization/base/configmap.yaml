@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  LOG_LEVEL: "INFO"
+  # DATABASE_URL задаётся в overlay через Secret — не здесь

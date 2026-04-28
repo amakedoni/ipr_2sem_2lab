@@ -1,0 +1,16 @@
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+
+# Короткий хост — работает внутри одного namespace (telegram-demo)
+database:
+  url: "postgresql://support_user:dev-password-change-me@postgres-0.postgres.telegram-demo.svc.cluster.local:5432/support_bot"
+
+config:
+  logLevel: "DEBUG"
